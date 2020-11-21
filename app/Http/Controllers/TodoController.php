@@ -33,7 +33,7 @@ class TodoController extends Controller
     public function destroy(Todo $todo, $id){
         $todo = Todo::find($id);
         $todo->delete();
-        return redirect('/todo')->with('status','deleted');
+        return redirect('/')->with('status','deleted');
     }
 
     public function edit($id)
@@ -58,8 +58,7 @@ class TodoController extends Controller
         // $todo->update();
         $todo->fill($input)->save();
   
-        return redirect()->route('todo.index')
-                        ->with('success','User updated successfully');
+        return redirect('/')->with('status','updated');
     }
         
         
